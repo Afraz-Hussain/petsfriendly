@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState } from "react";
@@ -7,7 +6,6 @@ import {
   Clock,
   PawPrint,
   User,
-  Phone,
   Stethoscope,
   MessageCircle,
   MapPin,
@@ -17,7 +15,7 @@ import {
   ClipboardList,
 } from "lucide-react";
 
-const WHATSAPP_NUMBER = "+923014288772"; // Replace with actual WhatsApp number
+const WHATSAPP_NUMBER = "923014288772";
 
 const services = [
   "Medical Consultation",
@@ -41,6 +39,21 @@ const timeSlots = [
   "06:00 PM",
 ];
 
+const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
 export default function Booking() {
   const [form, setForm] = useState({
     name: "",
@@ -55,15 +68,12 @@ export default function Booking() {
 
   const [error, setError] = useState("");
 
-  const today = new Date();
-  const minDate = [
-    today.getFullYear(),
-    String(today.getMonth() + 1).padStart(2, "0"),
-    String(today.getDate()).padStart(2, "0"),
-  ].join("-");
-
   const updateForm = (field, value) => {
-    setForm((prev) => ({ ...prev, [field]: value }));
+    setForm((prev) => ({
+      ...prev,
+      [field]: value,
+    }));
+
     setError("");
   };
 
@@ -71,9 +81,9 @@ export default function Booking() {
     e.preventDefault();
 
     if (
-      !form.name ||
-      !form.phone ||
-      !form.petName ||
+      !form.name.trim() ||
+      !form.phone.trim() ||
+      !form.petName.trim() ||
       !form.date ||
       !form.time
     ) {
@@ -81,12 +91,12 @@ export default function Booking() {
       return;
     }
 
-    const selectedDate = new Date(`${form.date}T00:00:00`);
-    const formattedDate = selectedDate.toLocaleDateString("en-PK", {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-    });
+    // Format YYYY-MM-DD manually without using Date().
+    const [year, month, day] = form.date.split("-");
+
+    const formattedDate = `${Number(day)} ${
+      months[Number(month) - 1]
+    } ${year}`;
 
     const whatsappMessage = `
 🐾 *NEW APPOINTMENT REQUEST*
@@ -124,14 +134,14 @@ Please confirm my appointment. Thank you!
   const inputClass =
     "w-full rounded-xl border border-[#E8E2D8] bg-[#FFFCF7] px-4 py-3.5 text-sm text-[#1E293B] outline-none transition placeholder:text-gray-400 focus:border-[#E28220] focus:ring-2 focus:ring-[#E28220]/10";
 
-  const labelClass =
-    "mb-2 block text-sm font-semibold text-[#1E293B]";
+  const labelClass = "mb-2 block text-sm font-semibold text-[#1E293B]";
 
   return (
     <main className="min-h-screen bg-[#FFFCF7]">
-      {/* Hero */}
+      {/* Hero Section */}
       <section className="relative overflow-hidden bg-[#071B2D] px-6 py-20 md:py-28">
         <div className="absolute inset-0 bg-[url('/imgs/cat_and_dog.jpg')] bg-cover bg-center opacity-20" />
+
         <div className="absolute inset-0 bg-gradient-to-r from-[#071B2D] via-[#071B2D]/90 to-[#071B2D]/60" />
 
         <div className="relative z-10 mx-auto max-w-7xl">
@@ -158,10 +168,12 @@ Please confirm my appointment. Thank you!
                 <CheckCircle2 className="text-[#E28220]" size={18} />
                 Easy Booking
               </div>
+
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="text-[#E28220]" size={18} />
                 Direct WhatsApp Contact
               </div>
+
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="text-[#E28220]" size={18} />
                 Professional Pet Care
@@ -174,21 +186,25 @@ Please confirm my appointment. Thank you!
       {/* Booking Section */}
       <section className="px-5 py-16 md:px-6 md:py-24">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_360px]">
-          {/* Form */}
+
+          {/* Booking Form */}
           <div className="rounded-3xl border border-[#EAE4DA] bg-white p-6 shadow-[0_12px_45px_rgba(30,41,59,0.06)] md:p-10">
             <div className="mb-9">
               <span className="text-sm font-bold uppercase tracking-widest text-[#E28220]">
                 Appointment Form
               </span>
+
               <h2 className="mt-2 text-2xl font-bold text-[#033C72] md:text-3xl">
                 Tell Us About Your Pet
               </h2>
+
               <p className="mt-2 text-sm leading-6 text-gray-500">
                 Fill in the details below to request your appointment.
               </p>
             </div>
 
             <form onSubmit={handleBooking} className="space-y-8">
+
               {/* Owner Details */}
               <div>
                 <h3 className="mb-5 flex items-center gap-2 font-bold text-[#1E293B]">
@@ -198,7 +214,10 @@ Please confirm my appointment. Thank you!
 
                 <div className="grid gap-5 md:grid-cols-2">
                   <div>
-                    <label className={labelClass}>Your Full Name *</label>
+                    <label className={labelClass}>
+                      Your Full Name *
+                    </label>
+
                     <input
                       type="text"
                       value={form.name}
@@ -210,7 +229,10 @@ Please confirm my appointment. Thank you!
                   </div>
 
                   <div>
-                    <label className={labelClass}>WhatsApp Number *</label>
+                    <label className={labelClass}>
+                      WhatsApp Number *
+                    </label>
+
                     <input
                       type="tel"
                       value={form.phone}
@@ -232,7 +254,10 @@ Please confirm my appointment. Thank you!
 
                 <div className="grid gap-5 md:grid-cols-2">
                   <div>
-                    <label className={labelClass}>Pet Name *</label>
+                    <label className={labelClass}>
+                      Pet Name *
+                    </label>
+
                     <input
                       type="text"
                       value={form.petName}
@@ -244,7 +269,10 @@ Please confirm my appointment. Thank you!
                   </div>
 
                   <div>
-                    <label className={labelClass}>Pet Type *</label>
+                    <label className={labelClass}>
+                      Pet Type *
+                    </label>
+
                     <select
                       value={form.petType}
                       onChange={(e) => updateForm("petType", e.target.value)}
@@ -261,7 +289,7 @@ Please confirm my appointment. Thank you!
                 </div>
               </div>
 
-              {/* Service */}
+              {/* Veterinary Service */}
               <div>
                 <h3 className="mb-5 flex items-center gap-2 font-bold text-[#1E293B]">
                   <Stethoscope className="text-[#E28220]" size={20} />
@@ -269,7 +297,10 @@ Please confirm my appointment. Thank you!
                 </h3>
 
                 <div>
-                  <label className={labelClass}>What service do you need? *</label>
+                  <label className={labelClass}>
+                    What service do you need? *
+                  </label>
+
                   <select
                     value={form.service}
                     onChange={(e) => updateForm("service", e.target.value)}
@@ -293,10 +324,12 @@ Please confirm my appointment. Thank you!
 
                 <div className="grid gap-5 md:grid-cols-2">
                   <div>
-                    <label className={labelClass}>Appointment Date *</label>
+                    <label className={labelClass}>
+                      Appointment Date *
+                    </label>
+
                     <input
                       type="date"
-                      min={minDate}
                       value={form.date}
                       onChange={(e) => updateForm("date", e.target.value)}
                       className={inputClass}
@@ -305,7 +338,10 @@ Please confirm my appointment. Thank you!
                   </div>
 
                   <div>
-                    <label className={labelClass}>Available Time Slots *</label>
+                    <label className={labelClass}>
+                      Available Time Slots *
+                    </label>
+
                     <div className="grid grid-cols-2 gap-2">
                       {timeSlots.map((slot) => (
                         <button
@@ -331,6 +367,7 @@ Please confirm my appointment. Thank you!
                 <label className={labelClass}>
                   Additional Details (Optional)
                 </label>
+
                 <textarea
                   rows={4}
                   value={form.message}
@@ -340,12 +377,14 @@ Please confirm my appointment. Thank you!
                 />
               </div>
 
+              {/* Error Message */}
               {error && (
                 <p className="rounded-xl bg-red-50 px-4 py-3 text-sm font-medium text-red-600">
                   {error}
                 </p>
               )}
 
+              {/* Submit Button */}
               <button
                 type="submit"
                 className="flex w-full items-center justify-center gap-3 rounded-xl bg-[#E28220] px-6 py-4 font-bold text-white shadow-lg shadow-orange-200/50 transition hover:-translate-y-0.5 hover:bg-[#cc7015]"
@@ -365,30 +404,36 @@ Please confirm my appointment. Thank you!
 
           {/* Side Information */}
           <aside className="space-y-6">
+
+            {/* Doctor Information */}
             <div className="overflow-hidden rounded-3xl bg-[#071B2D] p-7 text-white">
               <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#E28220]">
                 <Stethoscope size={24} />
               </div>
 
               <p className="text-sm font-semibold text-orange-300">
-                YOUR PET&apos; HEALTH MATTERS
+                YOUR PET&apos;S HEALTH MATTERS
               </p>
+
               <h3 className="mt-3 text-2xl font-bold">
                 Expert Veterinary Care
               </h3>
+
               <p className="mt-3 text-sm leading-7 text-gray-300">
                 Book a consultation with Vet. Dr. Attiq ur Rehman
-                (DVM) for your pet&apos; health and well-being.
+                (DVM) for your pet&apos;s health and well-being.
               </p>
 
               <div className="mt-6 flex items-center gap-3 border-t border-white/10 pt-5">
                 <Heart className="shrink-0 text-[#E28220]" size={22} />
+
                 <p className="text-sm text-gray-200">
                   Compassionate care for every animal.
                 </p>
               </div>
             </div>
 
+            {/* Booking Information */}
             <div className="rounded-3xl border border-[#EAE4DA] bg-white p-7">
               <h3 className="mb-5 text-lg font-bold text-[#033C72]">
                 Booking Information
@@ -399,10 +444,12 @@ Please confirm my appointment. Thank you!
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-orange-50 text-[#E28220]">
                     <Clock size={20} />
                   </div>
+
                   <div>
                     <p className="font-semibold text-[#1E293B]">
                       Flexible Scheduling
                     </p>
+
                     <p className="mt-1 text-sm text-gray-500">
                       Request a suitable appointment time.
                     </p>
@@ -413,10 +460,12 @@ Please confirm my appointment. Thank you!
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-orange-50 text-[#E28220]">
                     <MessageCircle size={20} />
                   </div>
+
                   <div>
                     <p className="font-semibold text-[#1E293B]">
                       WhatsApp Confirmation
                     </p>
+
                     <p className="mt-1 text-sm text-gray-500">
                       Our team will contact you to confirm.
                     </p>
@@ -427,10 +476,12 @@ Please confirm my appointment. Thank you!
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-orange-50 text-[#E28220]">
                     <MapPin size={20} />
                   </div>
+
                   <div>
                     <p className="font-semibold text-[#1E293B]">
                       Visit Our Clinic
                     </p>
+
                     <p className="mt-1 text-sm text-gray-500">
                       Contact us for clinic location and directions.
                     </p>
@@ -439,17 +490,28 @@ Please confirm my appointment. Thank you!
               </div>
             </div>
 
+            {/* Before Your Visit */}
             <div className="rounded-3xl border border-orange-100 bg-[#F7F3EE] p-7">
               <div className="flex items-center gap-3">
                 <ClipboardList className="text-[#E28220]" size={23} />
+
                 <h3 className="font-bold text-[#033C72]">
                   Before Your Visit
                 </h3>
               </div>
+
               <ul className="mt-4 space-y-3 text-sm leading-6 text-gray-600">
-                <li>• Keep your pet&apos; previous medical records ready.</li>
-                <li>• Mention any symptoms in the booking form.</li>
-                <li>• Wait for WhatsApp confirmation before visiting.</li>
+                <li>
+                  • Keep your pet&apos;s previous medical records ready.
+                </li>
+
+                <li>
+                  • Mention any symptoms in the booking form.
+                </li>
+
+                <li>
+                  • Wait for WhatsApp confirmation before visiting.
+                </li>
               </ul>
             </div>
           </aside>
