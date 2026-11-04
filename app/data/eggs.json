@@ -1,0 +1,192 @@
+
+[
+  {
+    "id": 1,
+    "name": "Fresh Hen Eggs",
+    "category": "Eggs",
+    "type": "Hen",
+    "price": 900,
+    "unit": "per dozen",
+    "description": "Fresh farm hen eggs for everyday cooking and family use.",
+    "image": "https://images.pexels.com/photos/40207159/pexels-photo-40207159.jpeg"
+  },
+  {
+    "id": 2,
+    "name": "Fresh Duck Eggs",
+    "category": "Eggs",
+    "type": "Duck",
+    "price": 1500,
+    "unit": "per dozen",
+    "description": "Large and rich duck eggs, suitable for cooking and baking.",
+    "image": "https://images.pexels.com/photos/8125889/pexels-photo-8125889.jpeg"
+  },
+  {
+    "id": 3,
+    "name": "Turkey Hatching Eggs",
+    "category": "Eggs",
+    "type": "Turkey",
+    "price": 2500,
+    "unit": "per dozen",
+    "description": "Speckled turkey eggs for poultry breeders. Confirm fertility and collection date before ordering.",
+    "image": "https://images.pexels.com/photos/9806643/pexels-photo-9806643.jpeg"
+  },
+  {
+    "id": 4,
+    "name": "10 Days Old Hen Chicks",
+    "category": "Chicks",
+    "type": "Hen",
+    "age": "10 Days",
+    "price": 220,
+    "unit": "per chick",
+    "description": "Young hen chicks, suitable for poultry rearing and brooding.",
+    "image": "https://images.pexels.com/photos/32314327/pexels-photo-32314327.jpeg"
+  },
+  {
+    "id": 5,
+    "name": "25 Days Old Hen Chicks",
+    "category": "Chicks",
+    "type": "Hen",
+    "age": "25 Days",
+    "price": 350,
+    "unit": "per chick",
+    "description": "Growing hen chicks with developing feathers, ready for continued rearing.",
+    "image": "https://images.pexels.com/photos/13443340/pexels-photo-13443340.jpeg"
+  },
+  {
+    "id": 6,
+    "name": "1 Month Old Hen Chicks",
+    "category": "Chicks",
+    "type": "Hen",
+    "age": "1 Month",
+    "price": 450,
+    "unit": "per chick",
+    "description": "One-month-old chickens for small farms and backyard poultry keeping.",
+    "image": "https://images.pexels.com/photos/38902326/pexels-photo-38902326.jpeg"
+  },
+  {
+    "id": 7,
+    "name": "10 Days Old Ducklings",
+    "category": "Chicks",
+    "type": "Duck",
+    "age": "10 Days",
+    "price": 400,
+    "unit": "per duckling",
+    "description": "Young ducklings for poultry farming and backyard raising.",
+    "image": "https://images.pexels.com/photos/16542929/pexels-photo-16542929.jpeg"
+  },
+  {
+    "id": 8,
+    "name": "25 Days Old Ducklings",
+    "category": "Chicks",
+    "type": "Duck",
+    "age": "25 Days",
+    "price": 650,
+    "unit": "per duckling",
+    "description": "Growing ducklings with developing feathers and active behaviour.",
+    "image": "https://images.pexels.com/photos/34032430/pexels-photo-34032430.jpeg  "
+  },
+  {
+    "id": 9,
+    "name": "1 Month Old Ducks",
+    "category": "Chicks",
+    "type": "Duck",
+    "age": "1 Month",
+    "price": 850,
+    "unit": "per duck",
+    "description": "One-month-old ducks for poultry keepers and small farms.",
+    "image": "https://images.pexels.com/photos/38902326/pexels-photo-38902326.jpeg"
+  },
+  {
+    "id": 10,
+    "name": "10 Days Old Turkey Poults",
+    "category": "Chicks",
+    "type": "Turkey",
+    "age": "10 Days",
+    "price": 1400,
+    "unit": "per poult",
+    "description": "Young turkey poults requiring appropriate brooding and care.",
+    "image": "https://images.pexels.com/photos/37431942/pexels-photo-37431942.jpeg"
+  },
+  {
+    "id": 11,
+    "name": "25 Days Old Turkey Poults",
+    "category": "Chicks",
+    "type": "Turkey",
+    "age": "25 Days",
+    "price": 1900,
+    "unit": "per poult",
+    "description": "Growing turkey poults for poultry breeders and farm owners.",
+    "image": "https://images.pexels.com/photos/27083555/pexels-photo-27083555.jpeg"
+  },
+  {
+    "id": 12,
+    "name": "1 Month Old Turkey Poults",
+    "category": "Chicks",
+    "type": "Turkey",
+    "age": "1 Month",
+    "price": 2500,
+    "unit": "per poult",
+    "description": "One-month-old turkey poults for continued poultry rearing.",
+    "image": "https://images.pexels.com/photos/38321641/pexels-photo-38321641.jpeg"
+  },
+  {
+    "id": 13,
+    "name": "Adult Laying Hens",
+    "category": "Adult Birds",
+    "type": "Hen",
+    "price": 1800,
+    "unit": "per bird",
+    "description": "Mature hens suitable for egg production. Laying status should be confirmed.",
+    "image": "https://images.pexels.com/photos/40207159/pexels-photo-40207159.jpeg"
+  },
+  {
+    "id": 14,
+    "name": "Adult Roosters",
+    "category": "Adult Birds",
+    "type": "Hen",
+    "price": 2500,
+    "unit": "per bird",
+    "description": "Healthy mature roosters for breeding and farm flocks.",
+    "image": "https://images.pexels.com/photos/7323135/pexels-photo-7323135.jpeg"
+  },
+  {
+    "id": 15,
+    "name": "Adult Female Ducks",
+    "category": "Adult Birds",
+    "type": "Duck",
+    "price": 2200,
+    "unit": "per bird",
+    "description": "Mature female ducks for breeding and poultry keeping.",
+    "image": "https://images.pexels.com/photos/5487720/pexels-photo-5487720.jpeg"
+  },
+  {
+    "id": 16,
+    "name": "Adult Male Ducks (Drakes)",
+    "category": "Adult Birds",
+    "type": "Duck",
+    "price": 2800,
+    "unit": "per bird",
+    "description": "Mature male ducks suitable for breeding flocks.",
+    "image": "https://images.pexels.com/photos/37475704/pexels-photo-37475704.jpeg"
+  },
+  {
+    "id": 17,
+    "name": "Adult Female Turkeys",
+    "category": "Adult Birds",
+    "type": "Turkey",
+    "price": 5000,
+    "unit": "per bird",
+    "description": "Mature female turkeys for poultry breeding and farm keeping.",
+    "image": "https://images.pexels.com/photos/13626303/pexels-photo-13626303.jpeg"
+  },
+  {
+    "id": 18,
+    "name": "Adult Male Turkeys (Toms)",
+    "category": "Adult Birds",
+    "type": "Turkey",
+    "price": 7500,
+    "unit": "per bird",
+    "description": "Mature male turkeys for breeding and poultry farms.",
+    "image": "https://images.pexels.com/photos/40118923/pexels-photo-40118923.jpeg"
+  }
+]
